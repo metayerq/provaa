@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 160 84% 17%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 259 94% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 160 84% 17%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 160 84% 17%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 160 84% 17%;
+
+    /* Updated minimalist color variables - Deep Vibrant with Warmth */
+    --black: 0 0% 0%;
+    --charcoal: 0 0% 13%;
+    --mint: 160 84% 17%;
+    --retro-green: 160 84% 15%;
+    --primary-light: 158 64% 52%;
+    --secondary-orange: 43 96% 56%;
+    --secondary-orange-hover: 32 95% 44%;
+    --secondary-orange-light: 48 96% 89%;
+    --accent-purple: 259 94% 51%;
+    --accent-purple-hover: 262 83% 58%;
+    --accent-purple-light: 273 100% 96%;
+    --white: 0 0% 100%;
+    --off-white: 210 20% 98%;
+    --light-gray: 210 40% 96%;
+    --medium-gray: 214 32% 91%;
+    --dark-gray: 215 16% 47%;
+    --text-primary: 0 0% 0%;
+    --text-secondary: 220 13% 29%;
+    --background-main: 210 40% 98%;
+    --cream: 36 33% 97%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 92%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 92%;
+
+    --primary: 160 84% 17%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 259 94% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 160 84% 17%;
+    
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 160 84% 17%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 160 84% 17%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background-main text-text-primary font-sans;
+    /* Mobile app optimizations */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+    overflow-x: hidden;
+  }
+
+  /* Safe area handling for mobile apps */
+  html {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold leading-tight tracking-tight text-text-primary;
+  }
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile app specific styles */
+@media (max-width: 768px) {
+  /* Enhanced touch targets for mobile */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent zoom on inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Capacitor specific styles */
+.capacitor-app {
+  /* Prevent overscroll bounce */
+  overscroll-behavior: none;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  
+  /* Prevent selection on mobile */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Active state improvements for mobile */
+.active-scale {
+  transition: transform 0.1s ease-out;
+}
+
+.active-scale:active {
+  transform: scale(0.95);
+}
+
+/* Enhanced Mobile Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search Dropdown Animations */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideDown {
+  from { 
+    transform: translateY(-10px); 
+  }
+  to { 
+    transform: translateY(0); 
+  }
+}
+
+.search-dropdown-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.search-dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
+}
+
+@keyframes slide-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes stagger-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes line-draw {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+}
+
+/* Word rotation animation */
+@keyframes word-rotate {
+  0%, 80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+/* Underline animation */
+@keyframes underline-width {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Custom Component Styles */
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.animate-slide-in-from-top {
+  animation: slide-in-from-top 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-in-from-bottom {
+  animation: slide-in-from-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-stagger-in {
+  animation: stagger-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-line-draw {
+  animation: line-draw 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 1s;
+}
+
+/* Search interaction styles - updated colors */
+.search-input:focus {
+  box-shadow: none;
+  border-color: hsl(var(--mint));
+}
+
+.search-input.search-focused + .search-icon {
+  transform: translateY(-50%);
+  color: hsl(var(--mint));
+}
+
+.magnetic-button {
+  transition: all 0.3s cubic-bezier(0.4, 0.6, 0.2, 1);
+}
+
+.magnetic-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
+}
+
+/* Dynamic headline styles */
+.rotating-word {
+  display: block;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.rotating-word-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.rotating-word-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rotating-word-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rotating-word-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.underline-animate {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Intersection Observer Animations */
+.featured-card.visible,
+.how-it-works-item.visible,
+.product-item.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Enhanced Mobile Touch Interactions */
+@media (max-width: 768px) {
+  .search-input {
+    font-size: 16px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  /* Enhanced button hover states for mobile */
+  .mobile-touch-target {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-touch-target::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(4, 120, 87, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+  }
+
+  .mobile-touch-target:active::before {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Updated Locally Sourced Badge with new colors */
+.locally-sourced-badge {
+  display: inline-block;
+  background: hsl(var(--primary-light));
+  border: 1px solid hsl(var(--mint));
+  color: hsl(var(--mint));
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .locally-sourced-badge {
+    padding: 4px 12px;
+    font-size: 10px;
+  }
+
+  /* Updated Mobile CTA Button Styling with new colors */
+  .host-cta-button {
+    display: none;
+  }
+  
+  .discover-cta-button {
+    width: calc(100% - 40px);
+    height: 60px;
+    background: hsl(var(--mint)) !important;
+    color: white !important;
+    border: none !important;
+    margin: 0 20px;
+  }
+  
+  .discover-cta-button:hover {
+    background: hsl(var(--retro-green)) !important;
+    color: white !important;
+    transform: scale(1.02);
+  }
+}
+
+/* Add custom animations for search dropdowns */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure search dropdowns stay above all other content */
+.search-container {
+  z-index: 10;
+}
+
+/* Fix any potential overflow issues on parent containers */
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure dropdown overlays work properly */
+#search-dropdown-portal {
+  pointer-events: auto;
+}
+
+/* Ensure hero section doesn't interfere with dropdowns */
+.hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Override any z-index issues with sections below hero */
+.moving-banner-section {
+  position: relative;
+  z-index: 1;
+}
+
+.featured-experiences-section {
+  position: relative;
+  z-index: 1;
+}
