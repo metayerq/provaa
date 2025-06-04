@@ -397,37 +397,37 @@ const AirbnbStyleSearch: React.FC<AirbnbStyleSearchProps> = ({ className }) => {
 
   return (
     <>
-      <div ref={searchRef} className={cn("search-container max-w-3xl mx-auto relative", className)}>
-        <div className="search-bar bg-white rounded-full p-2 shadow-[0_16px_64px_rgba(0,0,0,0.2)] flex items-center relative">
+      <div ref={searchRef} className={cn("search-container max-w-2xl mx-auto relative", className)}>
+        <div className="search-bar bg-white rounded-full p-1 shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-gray-200 flex items-center relative">
           {/* Date Section */}
           <div 
             ref={dateRef}
-            className="search-section flex-1 px-6 py-4 cursor-pointer hover:bg-gray-50 rounded-full transition-colors relative"
+            className="search-section flex-1 px-4 py-2.5 cursor-pointer hover:bg-gray-50 rounded-full transition-colors relative"
             onClick={() => handleSectionClick('date')}
           >
-            <div className="section-label text-xs font-semibold text-gray-900 uppercase tracking-wide">DATE</div>
-            <div className="section-value text-sm text-gray-600 mt-1">{formatDateRange()}</div>
+            <div className="section-label text-xs font-medium text-gray-700 uppercase tracking-wide">DATE</div>
+            <div className="section-value text-sm text-gray-900 mt-0.5 truncate">{formatDateRange()}</div>
           </div>
 
           {/* Divider */}
-          <div className="w-px h-8 bg-gray-200"></div>
+          <div className="w-px h-6 bg-gray-200"></div>
 
           {/* Guests Section */}
           <div 
             ref={guestsRef}
-            className="search-section flex-1 px-6 py-4 cursor-pointer hover:bg-gray-50 rounded-full transition-colors relative"
+            className="search-section flex-1 px-4 py-2.5 cursor-pointer hover:bg-gray-50 rounded-full transition-colors relative"
             onClick={() => handleSectionClick('guests')}
           >
-            <div className="section-label text-xs font-semibold text-gray-900 uppercase tracking-wide">WHO</div>
-            <div className="section-value text-sm text-gray-600 mt-1">{formatGuestCount()}</div>
+            <div className="section-label text-xs font-medium text-gray-700 uppercase tracking-wide">WHO</div>
+            <div className="section-value text-sm text-gray-900 mt-0.5 truncate">{formatGuestCount()}</div>
           </div>
 
           {/* Search Button */}
           <Button
             onClick={handleSearch}
-            className="search-button h-12 w-12 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white p-0 ml-2 transition-all duration-200 hover:scale-105"
+            className="search-button h-10 w-10 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white p-0 ml-1 transition-all duration-200 hover:scale-105 shadow-md"
           >
-            <Search className="h-5 w-5" />
+            <Search className="h-4 w-4" />
           </Button>
         </div>
       </div>
