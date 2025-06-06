@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Copy, Facebook, Twitter, Instagram, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -46,7 +45,8 @@ export const ShareModal: React.FC<ShareModalProps> = ({
     
     switch (platform) {
       case 'facebook':
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(eventUrl)}&quote=${encodeURIComponent(fullShareText)}`;
+        // Fixed Facebook sharing URL 
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(eventUrl)}`;
         break;
       case 'twitter':
         shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(eventUrl)}&text=${encodeURIComponent(fullShareText)}`;
@@ -66,8 +66,8 @@ export const ShareModal: React.FC<ShareModalProps> = ({
     }
     
     if (shareUrl) {
-      // Use same window navigation instead of popup
-      window.location.href = shareUrl;
+      // Open in new tab instead of same window navigation
+      window.open(shareUrl, '_blank', 'noopener,noreferrer');
     }
   };
 

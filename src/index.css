@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -124,11 +123,6 @@
     overflow-x: hidden;
   }
 
-  /* Safe area handling for mobile apps */
-  html {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-semibold leading-tight tracking-tight text-text-primary;
   }
@@ -161,19 +155,6 @@
   select {
     font-size: 16px !important;
   }
-}
-
-/* Capacitor specific styles */
-.capacitor-app {
-  /* Prevent overscroll bounce */
-  overscroll-behavior: none;
-  
-  /* Smooth scrolling */
-  scroll-behavior: smooth;
-  
-  /* Prevent selection on mobile */
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 /* Active state improvements for mobile */

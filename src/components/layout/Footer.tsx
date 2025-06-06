@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail } from "lucide-react";
@@ -32,18 +31,8 @@ const Footer = () => {
             <h3 className="text-white font-semibold uppercase tracking-wider mb-3">About</h3>
             <ul className="space-y-1">
               <li>
-                <Link to="/about" className="hover:text-white transition-colors">
+                <Link to="/our-story" className="hover:text-white transition-colors">
                   Our Story
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="hover:text-white transition-colors">
-                  We're Hiring
-                </Link>
-              </li>
-              <li>
-                <Link to="/press" className="hover:text-white transition-colors">
-                  Press Kit
                 </Link>
               </li>
             </ul>
@@ -53,9 +42,6 @@ const Footer = () => {
             <h3 className="text-white font-semibold uppercase tracking-wider mb-3">Support</h3>
             <ul className="space-y-1">
               <li>
-                <Link to="/help" className="hover:text-white transition-colors">Help Center</Link>
-              </li>
-              <li>
                 <Link to="/contact" className="hover:text-white transition-colors">
                   Contact Us
                 </Link>
@@ -63,11 +49,6 @@ const Footer = () => {
               <li>
                 <Link to="/faq" className="hover:text-white transition-colors">
                   FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/host-resources" className="hover:text-white transition-colors">
-                  Host Resources
                 </Link>
               </li>
             </ul>
@@ -94,6 +75,16 @@ const Footer = () => {
               <li>
                 <Link to="/events?category=artisan" className="hover:text-white transition-colors">
                   Artisan Workshops
+                </Link>
+              </li>
+              <li>
+                <Link to="/events?category=coffee" className="hover:text-white transition-colors">
+                  Coffee & Tea
+                </Link>
+              </li>
+              <li>
+                <Link to="/events?category=market" className="hover:text-white transition-colors">
+                  Local Markets
                 </Link>
               </li>
             </ul>

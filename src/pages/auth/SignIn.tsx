@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -108,15 +107,7 @@ const SignIn = () => {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <div className="flex justify-between items-center">
-                        <FormLabel className="text-text-primary font-medium">Password</FormLabel>
-                        <Link
-                          to="/auth/reset-password"
-                          className="text-sm text-mint hover:text-retro-green hover:underline transition-colors"
-                        >
-                          Forgot password?
-                        </Link>
-                      </div>
+                      <FormLabel className="text-text-primary font-medium">Password</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <Input

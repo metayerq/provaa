@@ -26,6 +26,10 @@ import TestModernSearch from "./pages/TestModernSearch";
 import FAQ from "./pages/FAQ";
 import HelpCenter from "./pages/HelpCenter";
 import Contact from "./pages/Contact";
+import OurStory from "./pages/OurStory";
+import Careers from "./pages/Careers";
+import PressKit from "./pages/PressKit";
+import HostResources from "./pages/HostResources";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel";
 import AdminRoute from "./components/AdminRoute";
@@ -63,9 +67,25 @@ const App = () => {
               <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
               <Route path="/bookings" element={<ProtectedRoute><MyBookings /></ProtectedRoute>} />
               <Route path="/saved" element={<ProtectedRoute><SavedEvents /></ProtectedRoute>} />
+              
+              {/* Public pages */}
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/help" element={<HelpCenter />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/our-story" element={<OurStory />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/press-kit" element={<PressKit />} />
+              <Route path="/host-resources" element={<HostResources />} />
+              
+              {/* Test pages */}
               <Route path="/test-calendar" element={<TestCalendar />} />
               <Route path="/test-favorites" element={<TestFavorites />} />
               <Route path="/test-modern-search" element={<TestModernSearch />} />
+              
+              {/* Payment pages */}
+              <Route path="/payment/success" element={<PaymentSuccess />} />
+              <Route path="/payment/cancel" element={<PaymentCancel />} />
+              
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Sonner />

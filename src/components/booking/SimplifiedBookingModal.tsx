@@ -142,6 +142,13 @@ export const SimplifiedBookingModal: React.FC<SimplifiedBookingModalProps> = ({
     setIsProcessing(true);
 
     try {
+      console.log('🔄 Starting Stripe checkout process...');
+      console.log('Event ID:', eventId);
+      console.log('Number of tickets:', numberOfTickets);
+      console.log('Price per ticket:', price);
+      console.log('Total amount:', totalAmount);
+      console.log('User:', user?.email);
+
       // Create Stripe Checkout Session using the correct function and parameters
       const { data: sessionData, error: sessionError } = await supabase
         .functions.invoke('create-stripe-checkout', {
@@ -158,13 +165,19 @@ export const SimplifiedBookingModal: React.FC<SimplifiedBookingModalProps> = ({
           }
         });
 
+      console.log('📡 Supabase function response:', { sessionData, sessionError });
+
       if (sessionError) {
+        console.error('❌ Session Error:', sessionError);
         throw new Error(sessionError.message || 'Failed to create checkout session');
       }
 
       if (!sessionData?.url) {
+        console.error('❌ No URL returned:', sessionData);
         throw new Error('No checkout URL returned');
       }
+
+      console.log('✅ Stripe checkout URL received:', sessionData.url);
 
       // Redirect to Stripe Checkout
       window.location.href = sessionData.url;
